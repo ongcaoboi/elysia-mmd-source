@@ -3,19 +3,19 @@
 @tailwind utilities;
 
 ::selection {
-    background-color: #000;
-    color: #fff;
+  background-color: #000;
+  color: #fff;
 }
 
 a {
-    @apply transition-colors;
-    @apply duration-300;
+  @apply transition-colors;
+  @apply duration-300;
 }
 img,
 svg {
-    @apply w-full h-full;
+  @apply w-full h-full;
 }
 
 canvas {
-    pointer-events: none;
+  pointer-events: none;
 }
