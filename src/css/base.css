@@ -19,3 +19,15 @@ svg {
 canvas {
   pointer-events: none;
 }
+
+@font-face {
+  font-family: Tomatoes Font;
+  src: url('./assets/fonts/tomatoes-font/Tomatoes-O8L8.ttf');
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}

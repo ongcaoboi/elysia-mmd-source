@@ -19,10 +19,78 @@ let helper
 
 let ready = false
 
+// List of MMDElements
+const listMMDElements = [
+  {
+    id: 0,
+    modelFile: '../../assets/models/mmd/Elysia/粉色妖精小姐1.0.pmx',
+    titleFile: './assets/media/images/MMD_Elysia.png',
+    title: 'Elysia',
+  },
+  {
+    id: 1,
+    modelFile: '../../assets/models/mmd/Elysia HOHE/爱莉希雅 3.0.pmx',
+    titleFile: './assets/media/images/MMD_Elysia_HOHE.png',
+    title: 'Elysia HOHE',
+  },
+  {
+    id: 2,
+    modelFile: '../../assets/models/mmd/Elysia Dreamy Euphony/Elysia.pmx',
+    titleFile: './assets/media/images/MMD_Elysia_Dreamy_Euhpony.png',
+    title: 'Elysia Dreamy Euphony',
+  },
+  {
+    id: 3,
+    modelFile: '../../assets/models/mmd/Elysia Maid/Elysia-Maid.pmx',
+    titleFile: './assets/media/images/MMD_Elysia_Maid.png',
+    title: 'Elysia Maid',
+  },
+  {
+    id: 4,
+    modelFile: '../../assets/models/mmd/Elysia Summer/爱莉希雅泳装 1.0.pmx',
+    titleFile: './assets/media/images/MMD_Elysia_Summer.png',
+    title: 'Elysia Summer',
+  },
+]
+
+let selectedMMD1 = listMMDElements[1]
+let selectedMMD2 = listMMDElements[0]
+
+const selectMMD1 = document.getElementById('selectMMD1')
+selectMMD1.innerHTML = listMMDElements
+  .map(
+    (item) => `
+  <option id="optionMMD1_${item.id}" value="${item.id}" class="bg-black  text-center">
+    ${item.title}
+  </option>
+`,
+  )
+  .join()
+selectMMD1.addEventListener('change', function () {
+  selectedMMD1 = listMMDElements[selectMMD1.selectedIndex]
+})
+
+const selectMMD2 = document.getElementById('selectMMD2')
+selectMMD2.innerHTML = listMMDElements
+  .map(
+    (item) => `
+  <option id="optionMMD1_${item.id}" value="${item.id}" class="bg-black text-center">
+    ${item.title}
+  </option>
+`,
+  )
+  .join('')
+selectMMD2.addEventListener('change', function () {
+  selectedMMD2 = listMMDElements[selectMMD2.selectedIndex]
+})
+
+selectMMD1.selectedIndex = 1
+selectMMD2.selectedIndex = 0
+
 const clock = new THREE.Clock()
 
 const startButton = document.querySelector('.start')
-document.body.addEventListener(
+startButton.addEventListener(
   'click',
   function () {
     Ammo().then((ammoLib) => {
@@ -118,29 +186,16 @@ function init() {
   }
 
   // Model 1
-  // let modelFile1 = "../../assets/models/mmd/Ling/ling_Apose.pmx";
-  // let modelFile1 = '../../assets/models/mmd/Elysia Dreamy Euphony/Elysia.pmx';
-  let modelFile1 = '../../assets/models/mmd/Elysia HOHE/爱莉希雅 3.0.pmx'
-  // let modelFile1 = '../../assets/models/mmd/Elysia/粉色妖精小姐1.0.pmx'
-  // let modelFile1 = '../../assets/models/mmd/Elysia Maid/Elysia-Maid.pmx';
-  // let modelFile1 = '../../assets/models/mmd/Elysia Summer/爱莉希雅泳装 1.0.pmx';
-  // const vmdFiles_1 = ['../../assets/models/mmd/vmds/wavefile_v2.vmd'];
+  let modelFile1 = selectedMMD1.modelFile
   const vmdFiles_1 = ['../../assets/models/mmd/vmds/model 1.vmd']
 
   // Model 2
-  // let modelFile2 = "../../assets/models/mmd/Ling/ling_Apose.pmx";
-  // let modelFile2 = '../../assets/models/mmd/Elysia Dreamy Euphony/Elysia.pmx';
-  // let modelFile2 = '../../assets/models/mmd/Elysia HOHE/爱莉希雅 3.0.pmx'
-  let modelFile2 = '../../assets/models/mmd/Elysia/粉色妖精小姐1.0.pmx'
-  // let modelFile2 = '../../assets/models/mmd/Elysia Maid/Elysia-Maid.pmx';
-  // let modelFile2 = '../../assets/models/mmd/Elysia Summer/爱莉希雅泳装 1.0.pmx';
-  // const vmdFiles_2 = ['../../assets/models/mmd/vmds/wavefile_v2.vmd'];
+  let modelFile2 = selectedMMD2.modelFile
   const vmdFiles_2 = ['../../assets/models/mmd/vmds/model 2.vmd']
 
   const cameraVmdFile = '../../assets/models/mmd/vmds/camera 2.vmd'
   // const audioFile = '../../assets/media/audios/wavefile_short.mp3';
-  const audioFile =
-    '../../assets/media/audios/yt1z.net - MMD - Cry Cry ( T-ARA) ( Motion Camera DL) (128 KBps).mp3'
+  const audioFile = '../../assets/media/audios/Cry_Cry_T-ARA_128_KBps.mp3'
   const audioParams = { delayTime: 0 }
 
   helper = new MMDAnimationHelper({

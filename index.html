@@ -1,17 +1,17 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" class="h-full">
   <head>
     <meta charset="UTF-8" />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="./assets/media/vector/logo.svg"
-    />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Elysia MMD</title>
+    <link rel="stylesheet" href="./src/css/base.css" />
   </head>
 
-  <body class="h-full flex flex-col justify-between">
+  <body
+    class="h-full flex flex-col justify-between"
+    oncontextmenu="return false;"
+  >
     <header class="px-5 md:px-12 py-6 flex justify-between items-center">
       <a href="./">
         <div class="w-24 text-red-100">
@@ -111,7 +111,7 @@
     >
       <div class="h-full flex flex-col justify-between">
         <div></div>
-        <figure class="w-32 mx-auto">
+        <figure class="w-48 mx-auto">
           <img
             src="./assets/media/images/Elysia_white.png"
             alt="Elysia MMD Logo"
@@ -119,8 +119,21 @@
           />
         </figure>
 
-        <div class="text-center pb-14 text-sm font-semibold">
-          <span class="cursor-pointer start select-none">Click to start</span>
+        <div
+          class="text-center pb-14 text-sm font-semibold"
+          style="font-family: Tomatoes Font"
+        >
+          <div class="flex gap-10 mb-12 px-4 py-2 h-12">
+            <select
+              id="selectMMD1"
+              class="w-32 bg-transparent text-white cursor-pointer text-[7px] scale-150"
+            ></select>
+            <select
+              id="selectMMD2"
+              class="w-32 bg-transparent text-white cursor-pointer text-[7px] scale-150"
+            ></select>
+          </div>
+          <span class="cursor-pointer start select-none text-xl">Start</span>
         </div>
       </div>
     </div>
